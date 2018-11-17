@@ -699,4 +699,11 @@ function suite(proxy) {
 		expect(p.d.getTime()).to.equal(test.d.getTime());
 	});
 	
+	it('36. Delete property after calling ObservableSlim.remove does not fail.', () => {
+		var test = {foo: 'foo'};
+		var p = ObservableSlim.create(test, false, function () {});
+		
+		ObservableSlim.remove(p);
+		delete p.foo;
+	});
 };
