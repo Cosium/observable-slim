@@ -169,7 +169,7 @@
 				}
 				Object.defineProperty(proxy, k, {get: getter.bind(target, k)});
 			}
-			var prototypeMethodsRequestingBinding = ['toJSON', 'valueOf'];
+			var prototypeMethodsRequestingBinding = ['toJSON', 'valueOf', 'toString'];
 			prototypeMethodsRequestingBinding.forEach(function(k) {
 				if (propertyMap[k] === true) {
 					return;

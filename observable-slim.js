@@ -140,6 +140,8 @@ var ObservableSlim = (function() {
 			}
 		};
 
+		var prototypeMethodsRequestingBinding = ['toJSON', 'valueOf', 'toString'];
+
 		var handler = {
 			get: function(target, property) {
 
@@ -189,7 +191,7 @@ var ObservableSlim = (function() {
 					var newPath = path.slice(0);
 					newPath.push({"target":targetProp,"property":property});
 					return _create(targetProp, domDelay, observable, newPath);
-				} else if ((property === 'toJSON' || property === 'valueOf') && targetProp instanceof Function && targetProp !== null) {
+				} else if (prototypeMethodsRequestingBinding.indexOf(property) !== -1 && targetProp instanceof Function && targetProp !== null) {
 					return targetProp.bind(target);
 				} else {
 					return targetProp;
