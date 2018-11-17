@@ -683,6 +683,20 @@ function suite(proxy) {
       		var p = ObservableSlim.create(test, false, function () {});
 
       		p.d.valueOf();
-      	});	
+      	});
 
+	it('34. Proxied Date.toString outputs the pristine Date.toString.', () => {
+		var test = {d: new Date()};
+		var p = ObservableSlim.create(test, false, function () {});
+
+		expect(p.d.toString()).to.equal(test.d.toString());               
+	});
+	
+	it('35. Proxied Date.getTime outputs the pristine Date.getTime.', () => {
+		var test = {d: new Date()};
+		var p = ObservableSlim.create(test, false, function () {});
+		
+		expect(p.d.getTime()).to.equal(test.d.getTime());
+	});
+	
 };
