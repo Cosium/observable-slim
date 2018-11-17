@@ -1,5 +1,5 @@
 {
-  "name": "observable-slim",
+  "name": "@cosium-oss/observable-slim",
   "description": "Observable Slim is a singleton that utilizes ES6 Proxies to observe changes made to an object and any nested children of that object. It is intended to assist with state management and one-way data binding.",
   "version": "0.1.10",
   "main": "observable-slim.js",
